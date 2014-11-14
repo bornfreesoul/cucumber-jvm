@@ -5,7 +5,7 @@
         <groupId>info.cukes</groupId>
         <artifactId>cucumber-jvm</artifactId>
         <relativePath>../pom.xml</relativePath>
-        <version>1.2.0-SNAPSHOT</version>
+        <version>1.2.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>cucumber-jruby</artifactId>
@@ -68,6 +68,17 @@
                             </includes>
                         </fileset>
                     </filesets>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <environmentVariables>
+                        <!-- https://github.com/cucumber/cucumber-jvm/issues/718 -->
+                        <RUBY_VERSION>1.9.3</RUBY_VERSION>
+                    </environmentVariables>
                 </configuration>
             </plugin>
 
